@@ -20,7 +20,6 @@ type circle struct {
 	radius float64
 }
 
-// interface implementation can not use pointer
 func (r rect) area() float64 {
 	return r.widht * r.height
 }
@@ -29,11 +28,11 @@ func (r rect) perim() float64 {
 	return 2*r.widht + 2*r.height
 }
 
-func (c circle) area() float64 {
+func (c *circle) area() float64 {
 	return math.Pi * c.radius * c.radius
 }
 
-func (c circle) perim() float64 {
+func (c *circle) perim() float64 {
 	return 2 * math.Pi * c.radius
 }
 
@@ -48,5 +47,5 @@ func main() {
 	c := circle{radius: 5}
 
 	measure(r)
-	measure(c)
+	measure(&c)
 }
