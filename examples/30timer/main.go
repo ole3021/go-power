@@ -28,6 +28,7 @@ func main() {
 	select {
 	case <-done:
 		fmt.Println("print complete")
+	// timeout select
 	case <-time.After(time.Second * 3):
 		fmt.Println("timeouted at 3")
 	}
