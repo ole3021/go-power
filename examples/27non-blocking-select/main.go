@@ -16,9 +16,8 @@ func main() {
 	}
 
 	msg := "h1"
-	// TODO: Why go to the default in this select
-	// messages <- msg
-	// fmt.Println(">> mes", messages)
+	// msg cannot be send to message cause there have no buffer
+	//messages := make(chan string, 1)
 	select {
 	case messages <- msg:
 		fmt.Println("sent message", msg)
